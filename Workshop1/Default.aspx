@@ -24,14 +24,14 @@
             <br />
             <br />
             <asp:Label ID="SizeLabel" runat="server" Text="Size"></asp:Label>
-            <asp:RadioButtonList ID="RadioButtonList_1" runat="server">
+            <asp:RadioButtonList ID="RadioButtonList_Size" runat="server">
                 <asp:ListItem>Small</asp:ListItem>
                 <asp:ListItem>Regular</asp:ListItem>
                 <asp:ListItem>Large</asp:ListItem>
             </asp:RadioButtonList>
             <br />
             <asp:Label ID="Label1" runat="server" Text="Spices"></asp:Label>
-            <asp:CheckBoxList ID="CheckBoxList1" runat="server">
+            <asp:CheckBoxList ID="CheckBoxList_Spices" runat="server">
                 <asp:ListItem>Chili</asp:ListItem>
                 <asp:ListItem>Pepper</asp:ListItem>
                 <asp:ListItem>More Salt</asp:ListItem>
@@ -39,6 +39,9 @@
             <br />
             <asp:Button ID="Button_Submit" runat="server" Text="Submit" OnClick="Button_Submit_Click" />
 &nbsp;<asp:HyperLink ID="HyperLink1" runat="server">View Summary</asp:HyperLink>
+            <br />
+            <br />
+            <asp:Label ID="Label_Result" runat="server" Text="Result"></asp:Label>
         </div>
     </form>
 </body>
