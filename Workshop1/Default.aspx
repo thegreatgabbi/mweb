@@ -12,6 +12,7 @@
             <asp:Label ID="CustomerLabel" runat="server" Text="Customer Name"></asp:Label>
             <br />
             <asp:TextBox ID="TextBox_Name" runat="server"></asp:TextBox>
+            &nbsp;<asp:HyperLink ID="HyperLink2" runat="server">Check Orders</asp:HyperLink>
             <br />
             <br />
             <asp:Label ID="DishLabel" runat="server" Text="Dish"></asp:Label>
@@ -38,7 +39,7 @@
             </asp:CheckBoxList>
             <br />
             <asp:Button ID="Button_Submit" runat="server" Text="Submit" OnClick="Button_Submit_Click" />
-&nbsp;<asp:HyperLink ID="HyperLink1" runat="server">View Summary</asp:HyperLink>
+&nbsp;<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="/AllOrders.aspx">View Summary</asp:HyperLink>
             <br />
             <br />
             <asp:Label ID="Label_Result" runat="server" Text="Result"></asp:Label>

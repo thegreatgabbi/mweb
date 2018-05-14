@@ -20,6 +20,8 @@
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FoodOrdersConnectionString %>" SelectCommand="SELECT * FROM [Orders]"></asp:SqlDataSource>
+            <br />
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="/Default.aspx">Back</asp:HyperLink>
         </div>
     </form>
 </body>
