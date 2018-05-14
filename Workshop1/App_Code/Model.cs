@@ -12,7 +12,6 @@ using System.Collections.Generic;
 
 public partial class Order
 {
-    public string CustomerID { get; set; }
     public string CustomerName { get; set; }
     public string Dish { get; set; }
     public string Size { get; set; }

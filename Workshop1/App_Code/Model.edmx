@@ -5,20 +5,19 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="FoodOrdersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Order">
+        <EntityType Name="Orders">
           <Key>
-            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="CustomerName" />
           </Key>
-          <Property Name="CustomerID" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="CustomerName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Dish" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Size" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="Dish" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Size" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Chili" Type="bit" />
           <Property Name="Pepper" Type="bit" />
           <Property Name="MoreSalt" Type="bit" />
         </EntityType>
         <EntityContainer Name="FoodOrdersModelStoreContainer">
-          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -27,12 +26,11 @@
       <Schema Namespace="FoodOrdersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Order">
           <Key>
-            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="CustomerName" />
           </Key>
-          <Property Name="CustomerID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Dish" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Size" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Dish" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Chili" Type="Boolean" />
           <Property Name="Pepper" Type="Boolean" />
           <Property Name="MoreSalt" Type="Boolean" />
@@ -48,8 +46,7 @@
         <EntityContainerMapping StorageEntityContainer="FoodOrdersModelStoreContainer" CdmEntityContainer="FoodOrdersEntities">
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="FoodOrdersModel.Order">
-              <MappingFragment StoreEntitySet="Order">
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              <MappingFragment StoreEntitySet="Orders">
                 <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
                 <ScalarProperty Name="Dish" ColumnName="Dish" />
                 <ScalarProperty Name="Size" ColumnName="Size" />
