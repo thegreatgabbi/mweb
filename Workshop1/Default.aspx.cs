@@ -48,4 +48,10 @@ public partial class _Default : System.Web.UI.Page
 
         Label_Result.Text = "Success!";
     }
+
+
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/CustomerOrders.aspx?name=" + TextBox_Name.Text);
+    }
 }

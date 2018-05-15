@@ -12,7 +12,7 @@
             <asp:Label ID="CustomerLabel" runat="server" Text="Customer Name"></asp:Label>
             <br />
             <asp:TextBox ID="TextBox_Name" runat="server"></asp:TextBox>
-            &nbsp;<asp:HyperLink ID="HyperLink2" runat="server">Check Orders</asp:HyperLink>
+            &nbsp;<asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">View My Orders</asp:LinkButton>
             <br />
             <br />
             <asp:Label ID="DishLabel" runat="server" Text="Dish"></asp:Label>
