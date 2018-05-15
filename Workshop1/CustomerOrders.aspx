@@ -10,7 +10,23 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-            <asp:GridView ID="GridView_CustomerOrders" runat="server">
+            <%-- AutoGenerateColumns true by default --%>
+            <asp:GridView
+                ID="GridView_CustomerOrders"
+                runat="server"
+                AutoGenerateColumns="false"
+                DataKeyNames="OrderID"
+                OnRowDeleting="GridView_CustomerOrders_RowDeleting">
+                <Columns>
+                    <asp:BoundField DataField="OrderID" HeaderText="ID"/>
+                    <asp:BoundField DataField="CustomerName" HeaderText="Name"/>
+                    <asp:BoundField DataField="Dish" HeaderText="Dish"/>
+                    <asp:BoundField DataField="Size" HeaderText="Size"/>
+                    <asp:CheckBoxField DataField="Chili" HeaderText="Chili"/>
+                    <asp:CheckBoxField DataField="Pepper" HeaderText="Pepper"/>
+                    <asp:CheckBoxField DataField="MoreSalt" HeaderText="More Salt"/>
+                    <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
+                </Columns>
             </asp:GridView>
             <br />
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Default.aspx">Back</asp:HyperLink>
