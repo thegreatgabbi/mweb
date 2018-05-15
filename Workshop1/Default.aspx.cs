@@ -21,11 +21,9 @@ public partial class _Default : System.Web.UI.Page
         string size = RadioButtonList_Size.Text;
 
         Order o = new Order();
-
         o.CustomerName = name;
         o.Dish = dish;
         o.Size = size;
-
         // check if each item in CheckBoxList is selected
         if (CheckBoxList_Spices.Items[0].Selected == true)
         {
@@ -40,18 +38,35 @@ public partial class _Default : System.Web.UI.Page
             o.MoreSalt = true;
         }
 
-        // Change text of Result
-        //Label_Result.Text = String.Format("{0} wants a {1} {2} with {3}.", name, size, dish, spices);
+        // validate form
+        if (TextBox_Name.Text == "" ||
+            DropDownList_Food.SelectedIndex == 0 ||
+            RadioButtonList_Size.SelectedIndex == -1)
+        {
+            Label_Result.Text = "Please ensure all fields are filled.";
+        } else
+        {
+            context.Orders.Add(o);
+            context.SaveChanges();
 
-        context.Orders.Add(o);
-        context.SaveChanges();
+            Label_Result.Text = "Success!";
+        }
 
-        Label_Result.Text = "Success!";
+
+
     }
 
 
     protected void LinkButton1_Click(object sender, EventArgs e)
     {
-        Response.Redirect("/CustomerOrders.aspx?name=" + TextBox_Name.Text);
+        if (TextBox_Name.Text == "")
+        {
+            Label_Result.Text = "Please enter a name.";
+        }
+        else
+        {
+            Response.Redirect("/CustomerOrders.aspx?name=" + TextBox_Name.Text);
+        }
     }
+
 }

@@ -18,6 +18,7 @@
             <asp:Label ID="DishLabel" runat="server" Text="Dish"></asp:Label>
             <br />
             <asp:DropDownList ID="DropDownList_Food" runat="server">
+                <asp:ListItem>- Select Dish -</asp:ListItem>
                 <asp:ListItem>Chicken Rice</asp:ListItem>
                 <asp:ListItem>Dumpling Noodles</asp:ListItem>
                 <asp:ListItem>Fish &amp; Chips</asp:ListItem>

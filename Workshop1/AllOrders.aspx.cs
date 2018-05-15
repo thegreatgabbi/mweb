@@ -9,21 +9,23 @@ public partial class AllOrders : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        FoodOrdersEntities context = new FoodOrdersEntities();
-        var query = from x in context.Orders select x;
-
-        List<Order> orderList = query.ToList<Order>();
-        // if rows returned = null
-        if (orderList.Count == 0)
+        if (!IsCallback)
         {
-            //  label.text = "No orders found for name"
-            Label1.Text = ("No orders found.");
-        }
-        else
-        {
-            // use EF framework as a datasource for the gridview
-            GridView1.DataSource = orderList;
-            GridView1.DataBind();
+            FoodOrdersEntities context = new FoodOrdersEntities();
+            var query = from x in context.Orders select x;
+            List<Order> orderList = query.ToList();
+            
+            // if rows returned = null
+            if (orderList.Count == 0)
+            {
+                Label1.Text = ("No orders found.");
+            }
+            else
+            {
+                // use EF framework as a datasource for the gridview
+                GridView1.DataSource = orderList;
+                GridView1.DataBind();
+            }
         }
     }
 
@@ -31,6 +33,8 @@ public partial class AllOrders : System.Web.UI.Page
     {
         int row = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value);
         BusinessLogic.DeleteRow(row);
-        Page.Response.Redirect(Page.Request.Url.ToString(), true);
+
+        GridView1.DataSource = BusinessLogic.GetSummaryList();
+        GridView1.DataBind();
     }
 }

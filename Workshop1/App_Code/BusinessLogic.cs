@@ -19,4 +19,24 @@ public static class BusinessLogic
         context.Orders.Remove(o);
         context.SaveChanges();
     }
+
+    public static List<Order> GetNameList(string name)
+    {
+        FoodOrdersEntities context = new FoodOrdersEntities();
+
+        var query = from x in context.Orders
+                    where x.CustomerName == name
+                    select x;
+
+        return query.ToList<Order>();
+    }
+
+    public static List<Order> GetSummaryList()
+    {
+        FoodOrdersEntities context = new FoodOrdersEntities();
+
+        var query = from x in context.Orders select x;
+
+        return query.ToList<Order>();
+    }
 }
