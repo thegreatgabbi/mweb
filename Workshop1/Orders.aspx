@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CustomerOrders.aspx.cs" Inherits="CustomerOrders" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Orders.aspx.cs" Inherits="CustomerOrders" %>
 
 <!DOCTYPE html>
 
@@ -17,7 +17,10 @@
                 AutoGenerateColumns="false"
                 DataKeyNames="OrderID"
                 OnRowDeleting="GridView_CustomerOrders_RowDeleting"
-                OnRowEditing="GridView_CustomerOrders_RowEditing">
+                OnRowEditing="GridView_CustomerOrders_RowEditing"
+                OnRowUpdating="GridView_CustomerOrders_RowUpdating"
+                OnRowCancelingEdit="GridView_CustomerOrders_RowCancelingEdit">
+
                 <Columns>
                     <asp:BoundField DataField="OrderID" HeaderText="ID" ReadOnly="true"/>
                     <asp:BoundField DataField="CustomerName" HeaderText="Name" />

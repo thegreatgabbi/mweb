@@ -40,7 +40,7 @@
             </asp:CheckBoxList>
             <br />
             <asp:Button ID="Button_Submit" runat="server" Text="Submit" OnClick="Button_Submit_Click" />
-&nbsp;<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="/AllOrders.aspx">View Summary</asp:HyperLink>
+&nbsp;<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="/Orders.aspx">View Summary</asp:HyperLink>
             <br />
             <br />
             <asp:Label ID="Label_Result" runat="server" Text="Result"></asp:Label>
