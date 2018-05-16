@@ -28,9 +28,7 @@ public partial class CustomerOrders : System.Web.UI.Page
             }
             else
             {
-                // use EF framework as a datasource for the gridview
-                GridView_CustomerOrders.DataSource = orderList;
-                GridView_CustomerOrders.DataBind();
+                BindGrid(name);
             }
         }
     }
@@ -42,8 +40,12 @@ public partial class CustomerOrders : System.Web.UI.Page
 
         // Refreshing the page will create a new entity object
         string name = Request.QueryString["name"];
+        BindGrid(name);
+    }
 
+    private void BindGrid(string name)
+    {
         GridView_CustomerOrders.DataSource = BusinessLogic.GetNameList(name);
         GridView_CustomerOrders.DataBind();
-    } 
+    }
 }
