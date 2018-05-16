@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="p1.aspx" title="Home"  description="Home">
+    <siteMapNode url="p8.aspx" title="Clothing" description="Clothing" />
+    <siteMapNode url="p2.aspx" title="Electrical"
+                 description="Electrical items">
+      <siteMapNode url="p3.aspx" title="Fan"  description="Fan units" />
+      <siteMapNode url="p4.aspx" title="Oven"  description="Oven units" />
+      <siteMapNode url="p5.aspx" title="Aircon"
+                   description="Aircon units" />
+      <siteMapNode url="p6.aspx" title="Water-heater"  description="" />
+    </siteMapNode>
+    <siteMapNode url="p7.aspx" title="Digital"
+                 description="Digital equipment">
+      <siteMapNode url="p9.aspx" title="SLR"  description="SLR camera" />
+      <siteMapNode url="p10.aspx" title="Mirrorless"  description="Mirrorless camera" />
+    </siteMapNode>
+    <siteMapNode url="p12.aspx" title="Furniture"
+                 description="Furniture pieces">
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

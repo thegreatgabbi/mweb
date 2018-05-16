@@ -7,6 +7,39 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+        .main_menu {
+            width: 110px;
+            background-color: #ff6a00;
+            color: #000;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+
+        .level_menu {
+            width: 110px;
+            background-color: #ffd800;
+            color: #000;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 5px;
+        }
+
+        a:hover.main_menu {
+            color: #0ff;
+            font-weight: bolder;
+        }
+
+        a:hover.level_menu {
+            color: #0ff;
+            font-weight: bolder;
+        }
+    </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -15,7 +48,18 @@
                 <tbody>
                     <tr>
                         <td>TOP CORNER</td>
-                        <td>TOP</td>
+                        <td>
+                            <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal">
+                                <LevelMenuItemStyles>
+                                    <asp:MenuItemStyle CssClass="main_menu" />
+                                    <asp:MenuItemStyle CssClass="level_menu" />
+                                </LevelMenuItemStyles>
+                            </asp:Menu>
+                            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+                            <br />
+                            <asp:SiteMapPath ID="SiteMapPath1" runat="server">
+                            </asp:SiteMapPath>
+                        </td>
                     </tr>
                     <tr>
                         <td>COL</td>
