@@ -9,7 +9,7 @@ public partial class CustomerOrders : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsCallback)
+        if (!IsPostBack)
         {
             // grab the query string
             string name = Request.QueryString["name"];
@@ -47,5 +47,12 @@ public partial class CustomerOrders : System.Web.UI.Page
     {
         GridView_CustomerOrders.DataSource = BusinessLogic.GetNameList(name);
         GridView_CustomerOrders.DataBind();
+    }
+
+    protected void GridView_CustomerOrders_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        GridView_CustomerOrders.EditIndex = e.NewEditIndex;
+        string name = Request.QueryString["name"];
+        BindGrid(name);
     }
 }

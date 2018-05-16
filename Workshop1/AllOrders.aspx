@@ -18,6 +18,7 @@
                 OnRowDeleting="GridView1_RowDeleting"
                 OnRowEditing="GridView1_RowEditing"
                 OnRowCancelingEdit="GridView1_RowCancelingEdit"
+                OnRowUpdating="GridView1_RowUpdating"
                 >
                 <Columns>
                     <asp:BoundField DataField="OrderID" HeaderText="OrderID" ReadOnly="True" InsertVisible="False" SortExpression="OrderID"/>

@@ -7,15 +7,9 @@ using System.Web.UI.WebControls;
 
 public partial class AllOrders : System.Web.UI.Page
 {
-    private void BindGrid()
-    {
-        // use EF framework as a datasource for the gridview
-        GridView1.DataSource = BusinessLogic.GetSummaryList();
-        GridView1.DataBind();
-    }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsCallback)
+        if (!IsPostBack)
         {
             FoodOrdersEntities context = new FoodOrdersEntities();
             var query = from x in context.Orders select x;
@@ -37,7 +31,7 @@ public partial class AllOrders : System.Web.UI.Page
     {
         int row = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value);
         BusinessLogic.DeleteRow(row);
-        GridView1.DataBind();
+        BindGrid();
     }
 
     protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
@@ -51,5 +45,28 @@ public partial class AllOrders : System.Web.UI.Page
     {
         GridView1.EditIndex = -1;
         BindGrid();
+    }
+
+    protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+        GridViewRow row = GridView1.Rows[e.RowIndex];
+        int id = Convert.ToInt32(row.Cells[0].Text);
+        string cname = (row.Cells[1].Controls[0] as TextBox).Text;
+        string dish = (row.FindControl("DropDownList1") as DropDownList).SelectedValue;
+        string size = (row.FindControl("DropDownList2") as DropDownList).SelectedValue;
+        bool chili = (row.Cells[4].Controls[0] as CheckBox).Checked;
+        bool pepper = (row.Cells[5].Controls[0] as CheckBox).Checked;
+        bool moresalt = (row.Cells[6].Controls[0] as CheckBox).Checked;
+        // pass all the details
+        BusinessLogic.UpdateRow(id, cname, dish, size, chili, pepper, moresalt);
+        GridView1.EditIndex = -1;
+
+        BindGrid();
+    }
+    private void BindGrid()
+    {
+        // use EF framework as a datasource for the gridview
+        GridView1.DataSource = BusinessLogic.GetSummaryList();
+        GridView1.DataBind();
     }
 }
